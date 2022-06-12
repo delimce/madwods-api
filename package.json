@@ -1,0 +1,43 @@
+{
+  "name": "madwods-api",
+  "version": "0.1.0",
+  "description": "Rest Api built using nodejs express and typescript for Madwods application suite",
+  "main": "./dist/Api/index.js",
+  "type":"module",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "*",
+    "@types/jest": "*",
+    "@types/node": "*"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node ./dist/Api/index",
+    "build": "rm -rf ./dist/ && tsc", 
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/delimce/madwods-api.git"
+  },
+  "keywords": [
+    "crossfit",
+    "wods",
+    "madwods",
+    "mobile",
+    "rest"
+  ],
+  "author": "ldelima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delimce/madwods-api/issues"
+  },
+  "homepage": "https://github.com/delimce/madwods-api#readme"
+}
