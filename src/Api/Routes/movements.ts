@@ -1,9 +1,10 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 import { MovementsController } from "../Controllers/MovementsController";
 const movements = Router();
 
 const controller = new MovementsController();
 
-movements.get("/", controller.list);
+movements.get("/", (req: Request, res: Response) => controller.list(req, res));
+
 
 export default movements;
