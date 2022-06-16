@@ -16,7 +16,7 @@ export class MovementsController extends BaseController {
             const movements = await this.movementList.run();
             this.setData(movements);
             this.setOk("movements list");
-        } catch (error) {
+        } catch (error: any) {
             this.setError(error.message);
         } finally {
             res.status(this.status).json(this.result);

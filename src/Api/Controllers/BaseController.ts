@@ -1,7 +1,7 @@
 import httpStatus from "http-status";
 export abstract class BaseController {
 
-    protected result;
+    protected result: { message: string, data?: any };
     protected status: number;
 
     constructor() {
