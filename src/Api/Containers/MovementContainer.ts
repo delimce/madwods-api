@@ -4,7 +4,7 @@ import { MovementTypeRepository } from '../../Contexts/Movement/Infrastructure/P
 let container = new ContainerBuilder();
 
 //repositories
-container.register('movement.repository', MovementTypeRepository);
+container.register('repositories.movement', MovementTypeRepository);
 
 export default container;
 

@@ -7,7 +7,7 @@ export class MovementListExecuter {
     private readonly movementRepository: MovementRepository;
 
     constructor() {
-        this.movementRepository = container.get('movement.repository');
+        this.movementRepository = container.get('repositories.movement');
     }
 
     run(): Promise<Movement[]> {
