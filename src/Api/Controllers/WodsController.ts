@@ -3,7 +3,7 @@ import { BaseController } from "./BaseController";
 
 export class WodsController extends BaseController {
 
-    async list(req: Request, res: Response): Promise<void> {
+    async list(_req: Request, res: Response): Promise<void> {
         try {
             this.setOk("everything's good");
         } catch (error: any) {
