@@ -1,5 +1,5 @@
 import { ContainerBuilder } from 'node-dependency-injection'
-import { MovementTypeRepository } from '../../Contexts/Movement/Infrastructure/Persistence/MovementTypeRepository';
+import { MovementTypeRepository } from '@Movement/Infrastructure/Persistence/MovementTypeRepository';
 
 let container = new ContainerBuilder();
 

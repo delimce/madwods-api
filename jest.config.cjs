@@ -5,4 +5,9 @@ module.exports = {
       '^.+\\.ts?$': 'ts-jest',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
+    moduleNameMapper: {
+      "@Api/(.*)": "<rootDir>/src/Api/$1",
+      "@Shared/(.*)": "<rootDir>/src/Contexts/Shared/$1",
+      "@Movement/(.*)": "<rootDir>/src/Contexts/Movement/$1",
+    }
   };

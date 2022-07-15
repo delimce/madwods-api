@@ -1,6 +1,6 @@
-import { Movement } from "../../Domain/Movement";
-import { MovementRepository } from "../../Domain/MovementRepository";
-import services from "../../../../Api/Services/InfrastructureServices";
+import { Movement } from "@Movement/Domain/Movement";
+import { MovementRepository } from "@Movement/Domain/MovementRepository";
+import services from "@Api/Services/InfrastructureServices";
 
 export class MovementTypeRepository implements MovementRepository
 {

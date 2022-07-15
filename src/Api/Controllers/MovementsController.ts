@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { MovementListExecuter } from "../../Contexts/Movement/Application/MovementListExecuter";
+import { MovementListExecuter } from "@Movement/Application/MovementListExecuter";
 import { BaseController } from "./BaseController";
 
 export class MovementsController extends BaseController {

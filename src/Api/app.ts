@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 import express, { Application } from "express";
-import bodyParser from "./Middleware/bodyParser";
-import cors from "./Middleware/cors";
+import bodyParser from "@Api/Middleware/bodyParser";
+import cors from "@Api/Middleware/cors";
 
 dotenv.config();
 const app = express() as Application;

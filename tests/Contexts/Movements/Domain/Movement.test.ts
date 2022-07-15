@@ -1,4 +1,4 @@
-import { Movement } from "../../../../src/Contexts/Movement/Domain/Movement";
+import { Movement } from "@Movement/Domain/Movement";
 
 describe("Movement is a valid object", () => {
     it("is a valid object", async () => {
@@ -7,4 +7,4 @@ describe("Movement is a valid object", () => {
         expect(typeof movement.getName() === "string").toBe(true);
         expect(typeof movement.getDescription() === "string").toBe(true);
     });
-})
+});

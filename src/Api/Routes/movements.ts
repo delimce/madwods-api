@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { MovementsController } from "../Controllers/MovementsController";
+import { MovementsController } from "@Api/Controllers/MovementsController";
 const movements = Router();
 
 const controller = new MovementsController();

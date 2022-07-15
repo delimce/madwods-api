@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import { Logger } from "../Domain/Logger";
+import { Logger } from "@Shared/Domain/Logger";
 import log4js from "log4js";
 
 export class LoggerHandler implements Logger {

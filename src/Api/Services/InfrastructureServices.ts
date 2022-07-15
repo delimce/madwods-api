@@ -1,5 +1,5 @@
 import { ContainerBuilder } from 'node-dependency-injection'
-import { LoggerHandler } from '../../Contexts/Shared/Infrastructure/LoggerHandler'
+import { LoggerHandler } from '@Shared/Infrastructure/LoggerHandler'
 
 let container = new ContainerBuilder();
 

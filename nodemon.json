@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "src/**/*.spec.ts"
+    ],
+    "exec": "ef-tspm && ts-node ./dist/Api/index"
+}

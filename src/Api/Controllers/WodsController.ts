@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BaseController } from "./BaseController";
+import { BaseController } from "@Api/Controllers/BaseController";
 
 export class WodsController extends BaseController {
 

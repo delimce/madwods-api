@@ -1,5 +1,5 @@
 import { Router,Request,Response } from "express";
-import { WodsController } from "../Controllers/WodsController";
+import { WodsController } from "@Api/Controllers/WodsController";
 
 const wods = Router();
 
