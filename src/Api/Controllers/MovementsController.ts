@@ -11,7 +11,7 @@ export class MovementsController extends BaseController {
         this.movementList = new MovementListExecuter();
     }
 
-    async list(req: Request, res: Response): Promise<void> {
+    async list(_req: Request, res: Response): Promise<void> {
         try {
             const movements = await this.movementList.run();
             this.setData(movements);
