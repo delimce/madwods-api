@@ -9,7 +9,7 @@ export class LoggerHandler implements Logger {
 
         dotenv.config();
 
-        let logFile: string | undefined = process.env.LOG_FILE;
+        let logFile: string | undefined = process.env.LOG_FILE || 'logs/app.log';
         const config = {
             appenders: {
                 console: {

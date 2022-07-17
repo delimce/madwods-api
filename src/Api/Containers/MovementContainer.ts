@@ -1,10 +1,10 @@
 import { ContainerBuilder } from 'node-dependency-injection'
-import { MovementTypeRepository } from '@Movement/Infrastructure/Persistence/MovementTypeRepository';
+import { MovementTORepository } from '@Movement/Infrastructure/Persistence/MovementTORepository';
 
 let container = new ContainerBuilder();
 
 //repositories
-container.register('repositories.movement', MovementTypeRepository);
+container.register('repositories.movement', MovementTORepository);
 
 export default container;
 
