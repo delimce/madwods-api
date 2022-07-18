@@ -9,5 +9,6 @@ module.exports = {
       "@Api/(.*)": "<rootDir>/src/Api/$1",
       "@Shared/(.*)": "<rootDir>/src/Contexts/Shared/$1",
       "@Movement/(.*)": "<rootDir>/src/Contexts/Movement/$1",
+      "@Tests/(.*)": "<rootDir>/tests/$1",
     }
   };

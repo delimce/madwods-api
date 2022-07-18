@@ -1,14 +1,17 @@
 import { MovementEntity } from "@Movement/Infrastructure/Persistence/MovementEntity";
-import {databaseConnect} from "@Shared/Infrastructure/DataSources/production";
+import { databaseConnect, databaseClose } from "@Tests/Config/database";
 
 import { MovementRepository } from "@Movement/Domain/MovementRepository";
 import container from "@Api/Containers/MovementContainer";
 
 
 beforeAll(async () => {
-    console.log("try to connect to database");
     await databaseConnect();
-})
+});
+
+afterAll(async () => {
+    await databaseClose();
+});
 
 
 describe('movement repository', () => {

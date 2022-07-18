@@ -4,11 +4,12 @@
     "module": "commonjs", /* Specify the module format to be used for compilation. */
     "rootDir": "./src", /* Specify the root folder within your source files. */
     "outDir": "./dist", /* Specify an output folder for all emitted files. */
-    "baseUrl": "src", /* Specify the base path for all relative paths in the source files. */
+   // "baseUrl": "src", /* Specify the base path for all relative paths in the source files. */
     "paths": {
-      "@Api/*": ["./Api/*"],
-      "@Shared/*": ["./Contexts/Shared/*"],
-      "@Movement/*": ["./Contexts/Movement/*"],
+      "@Api/*": ["./src/Api/*"],
+      "@Shared/*": ["./src/Contexts/Shared/*"],
+      "@Movement/*": ["./src/Contexts/Movement/*"],
+      "@Tests/*":["./tests/*"],
     },
     "emitDecoratorMetadata": true, /* Generate a source map for each output file. */
     "strictPropertyInitialization": false, /* Enable strict property initialization in your code. */
