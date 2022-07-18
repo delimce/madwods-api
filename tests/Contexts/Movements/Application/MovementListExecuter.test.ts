@@ -1,5 +1,5 @@
 import { MovementListExecuter } from "@Movement/Application/MovementListExecuter";
-import { databaseConnect, databaseClose } from "@Tests/Config/database";
+import { databaseConnect, databaseClose } from "@Tests/Utils/database";
 
 
 beforeAll(async () => {

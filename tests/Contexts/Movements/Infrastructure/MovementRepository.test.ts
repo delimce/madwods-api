@@ -1,5 +1,5 @@
 import { MovementEntity } from "@Movement/Infrastructure/Persistence/MovementEntity";
-import { databaseConnect, databaseClose } from "@Tests/Config/database";
+import { databaseConnect, databaseClose } from "@Tests/Utils/database";
 
 import { MovementRepository } from "@Movement/Domain/MovementRepository";
 import container from "@Api/Containers/MovementContainer";
