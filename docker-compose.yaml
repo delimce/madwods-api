@@ -15,6 +15,14 @@ services:
       mysql_network:
         aliases:
           - mysql_host
+  sqlite3:
+    container_name: sqlite3
+    platform: linux/amd64
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./data/sqlite/:/root/db/      
 volumes:
   schemas: {}
 networks:

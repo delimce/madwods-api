@@ -9,6 +9,10 @@ export class MovementEntity implements Movement {
     @Column()
     name: string;
 
-    @Column()
+    @Column({
+        type: "varchar",
+        length: 255,
+        nullable: true
+    })
     desc: string;
 }

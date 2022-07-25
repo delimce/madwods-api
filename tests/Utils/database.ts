@@ -1,4 +1,4 @@
-import { AppDataSource } from "@Shared/Infrastructure/DataSources/production";
+import { AppDataSource } from "@Shared/Infrastructure/DataSources/testing";
 import { DatabaseHandler } from "@Shared/Infrastructure/Handlers/DatabaseHandler";
 const timeout = 10000;
 
