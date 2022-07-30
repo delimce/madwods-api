@@ -9,7 +9,6 @@ export const AppDataSource: DataSource = new DataSource({
     database: "./data/sqlite/madwods.db",
     synchronize: false,
     entities: entities,
-    logging: true,
     subscribers: [],
     migrations: [],
 });

@@ -3,7 +3,7 @@ import { MovementRepository } from "@Movement/Domain/MovementRepository";
 import services from "@Api/Services/InfrastructureServices";
 
 import { MovementEntity } from "@Movement/Infrastructure/Persistence/MovementEntity";
-import { AppDataSource } from "@Shared/Infrastructure/DataSources/production";
+import { DataSourceHandler } from "@Shared/Infrastructure/Handlers/DataSourceHandler";
 import { LoggerHandler } from "@Shared/Infrastructure/Handlers/LoggerHandler";
 import { Repository } from "typeorm";
 
@@ -14,7 +14,7 @@ export class MovementTORepository implements MovementRepository {
 
     constructor() {
         this.logger = services.get('services.logger');
-        this.movementRepository = AppDataSource.getRepository(MovementEntity);
+        this.movementRepository = DataSourceHandler.getDt().getRepository(MovementEntity);
     }
 
     async getAll(): Promise<Movement[] | null> {

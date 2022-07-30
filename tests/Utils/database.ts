@@ -1,6 +1,10 @@
 import { AppDataSource } from "@Shared/Infrastructure/DataSources/testing";
 import { DatabaseHandler } from "@Shared/Infrastructure/Handlers/DatabaseHandler";
+import {DataSourceHandler} from "@Shared/Infrastructure/Handlers/DataSourceHandler";
 const timeout = 10000;
+
+// testing database
+DataSourceHandler.dataSourceName = "testing";
 
 const db = new DatabaseHandler(AppDataSource);
 
