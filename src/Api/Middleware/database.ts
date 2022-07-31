@@ -1,4 +1,4 @@
-import { AppDataSource } from "@Shared/Infrastructure/DataSources/production";
+import { AppDataSource } from "@Shared/Infrastructure/TypeOrm/DataSources/production";
 import { DatabaseHandler } from "@Shared/Infrastructure/Handlers/DatabaseHandler";
 import services from "@Api/Services/InfrastructureServices";
 const logger = services.get("services.logger");

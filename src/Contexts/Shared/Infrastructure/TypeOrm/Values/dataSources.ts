@@ -1,5 +1,5 @@
-import { AppDataSource as prod } from "@Shared/Infrastructure/DataSources/production";
-import { AppDataSource as testing } from "@Shared/Infrastructure/DataSources/testing";
+import { AppDataSource as prod } from "@Shared/Infrastructure/TypeOrm/DataSources/production";
+import { AppDataSource as testing } from "@Shared/Infrastructure/TypeOrm/DataSources/testing";
 import { DataSource } from "typeorm";
 
 export type dataSourceObject = {

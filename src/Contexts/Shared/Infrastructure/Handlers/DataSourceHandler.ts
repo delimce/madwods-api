@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import { dataSources } from "@Shared/Infrastructure/Values/dataSources";
+import { dataSources } from "@Shared/Infrastructure/TypeOrm/Values/dataSources";
 import { DataSource } from "typeorm";
 dotenv.config();
 

@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 import { DataSource } from "typeorm";
-import { entities } from "@Shared/Infrastructure/Values/entities";
+import { entities } from "@Shared/Infrastructure/TypeOrm/Values/entities";
 
 dotenv.config();
 
