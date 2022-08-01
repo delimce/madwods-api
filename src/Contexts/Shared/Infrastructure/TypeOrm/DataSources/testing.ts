@@ -6,7 +6,7 @@ dotenv.config();
 
 export const AppDataSource: DataSource = new DataSource({
     type: 'sqlite',
-    database: "./data/sqlite/madwods.db",
+    database: String(process.env.DB_TEST_PATH),
     synchronize: false,
     entities: entities,
     subscribers: [],
