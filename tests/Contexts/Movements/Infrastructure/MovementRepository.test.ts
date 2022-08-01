@@ -1,4 +1,4 @@
-import { MovementEntity } from "@Movement/Infrastructure/Persistence/MovementEntity";
+import { MovementViewEntity } from "@Movement/Infrastructure/Persistence/MovementViewEntity";
 import { databaseConnect, databaseClose } from "@Tests/Utils/database";
 
 import { MovementRepository } from "@Movement/Domain/MovementRepository";
@@ -20,7 +20,7 @@ describe('movement repository', () => {
         const movements = await repository.getAll();
         if (movements) {
             expect(movements.length).toBeGreaterThan(0);
-            expect(movements[0]).toBeInstanceOf(MovementEntity);
+            expect(movements[0]).toBeInstanceOf(MovementViewEntity);
         }
     });
 });
