@@ -3,17 +3,29 @@
 
  Source Server         : madwods_sqlite
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3036000 (3.36.0)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3036000 (3.36.0)
  File Encoding         : 65001
 
- Date: 01/08/2022 13:18:35
+ Date: 04/08/2022 00:27:07
 */
 
 PRAGMA foreign_keys = false;
+
+-- ----------------------------
+-- Table structure for sqlite_sequence
+-- ----------------------------
+DROP TABLE IF EXISTS "sqlite_sequence";
+CREATE TABLE sqlite_sequence(name,seq);
+
+-- ----------------------------
+-- Records of sqlite_sequence
+-- ----------------------------
+BEGIN;
+COMMIT;
 
 -- ----------------------------
 -- Table structure for tbl_bodypart
@@ -362,6 +374,12 @@ FROM
 			))) 
 GROUP BY
 	`m`.`id`;
+
+-- ----------------------------
+-- View structure for vw_wods
+-- ----------------------------
+DROP VIEW IF EXISTS "vw_wods";
+CREATE VIEW "vw_wods" AS select `w`.`id` AS `id`,`w`.`name` AS `name`,`wt`.`name` AS `type`,count(0) AS `movements` from ((`tbl_wod` `w` join `tbl_wod_detail` `wd` on((`w`.`id` = `wd`.`wod_id`))) join `tbl_wod_type` `wt` on((`w`.`type_id` = `wt`.`id`))) group by `w`.`id`;
 
 -- ----------------------------
 -- Indexes structure for table tbl_movement

@@ -9,6 +9,7 @@
       "@Api/*": ["./src/Api/*"],
       "@Shared/*": ["./src/Contexts/Shared/*"],
       "@Movement/*": ["./src/Contexts/Movement/*"],
+      "@Wod/*": ["./src/Contexts/Wod/*"],
       "@Tests/*":["./tests/*"],
     },
     "emitDecoratorMetadata": true, /* Generate a source map for each output file. */
