@@ -1,6 +1,5 @@
-import { MovementListExecuter } from "@Movement/Application/MovementListExecuter";
 import { databaseConnect, databaseClose } from "@Tests/Utils/database";
-
+import container from "@Api/Containers/MovementContainer";
 
 beforeAll(async () => {
     await databaseConnect();
@@ -13,8 +12,7 @@ afterAll(async () => {
 
 describe('movement list', () => {
     it('should retrieve a valid list of movements', async () => {
-        const listExecuter = new MovementListExecuter();
-        const movements = await listExecuter.run();
+        const movements = await container.get('executers.movement.list').run();
         if (movements) {
             expect(movements.length).toBeGreaterThan(0);
         }

@@ -13,4 +13,7 @@ export class WodViewEntity implements Wod {
     @ViewColumn()
     type: string;
 
+    @ViewColumn()
+    timeCap: string;
+
 }
