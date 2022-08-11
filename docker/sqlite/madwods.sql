@@ -10,10 +10,94 @@
  Target Server Version : 3036000 (3.36.0)
  File Encoding         : 65001
 
- Date: 04/08/2022 00:27:07
+ Date: 11/08/2022 10:21:41
 */
 
 PRAGMA foreign_keys = false;
+
+-- ----------------------------
+-- Table structure for _tbl_wod_detail_old_20220809
+-- ----------------------------
+DROP TABLE IF EXISTS "_tbl_wod_detail_old_20220809";
+CREATE TABLE "_tbl_wod_detail_old_20220809" (
+  "id" integer NOT NULL,
+  "wod_id" integer NOT NULL,
+  "movement_id" integer NOT NULL,
+  "measure_id" integer,
+  "quantity" integer,
+  "quantity2" integer,
+  "quantity3" integer,
+  "weigth" real,
+  "weight2" real,
+  "weight3" real,
+  "order" integer,
+  "extra" text(200),
+  PRIMARY KEY ("id"),
+  CONSTRAINT "tbl_wod_detail_ibfk_1" FOREIGN KEY ("wod_id") REFERENCES "tbl_wod" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT "tbl_wod_detail_ibfk_2" FOREIGN KEY ("movement_id") REFERENCES "tbl_movement" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT "tbl_wod_detail_ibfk_3" FOREIGN KEY ("measure_id") REFERENCES "tbl_measure" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+-- ----------------------------
+-- Records of _tbl_wod_detail_old_20220809
+-- ----------------------------
+BEGIN;
+INSERT INTO "_tbl_wod_detail_old_20220809" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weigth", "weight2", "weight3", "order", "extra") VALUES (1, 1, 4, 1, 21, 15, 9, NULL, NULL, NULL, 2, NULL);
+INSERT INTO "_tbl_wod_detail_old_20220809" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weigth", "weight2", "weight3", "order", "extra") VALUES (2, 1, 17, 1, 21, 15, 9, 95.0, 65.0, NULL, 1, NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for _tbl_wod_old_20220809
+-- ----------------------------
+DROP TABLE IF EXISTS "_tbl_wod_old_20220809";
+CREATE TABLE "_tbl_wod_old_20220809" (
+  "id" integer NOT NULL,
+  "name" text(120) NOT NULL,
+  "desc" text(255),
+  "type_id" integer NOT NULL,
+  "level_id" integer,
+  "classic" integer NOT NULL,
+  "rounds" integer,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "tbl_wod_ibfk_1" FOREIGN KEY ("type_id") REFERENCES "tbl_wod_type" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT "tbl_wod_ibfk_2" FOREIGN KEY ("level_id") REFERENCES "tbl_movement_level" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+-- ----------------------------
+-- Records of _tbl_wod_old_20220809
+-- ----------------------------
+BEGIN;
+INSERT INTO "_tbl_wod_old_20220809" ("id", "name", "desc", "type_id", "level_id", "classic", "rounds", "created_at", "updated_at") VALUES (1, 'Frank', 'Heroes', 3, 2, 1, 3, '2022-03-26 21:29:42', '2022-03-26 21:52:31');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for _tbl_wod_old_20220809_1
+-- ----------------------------
+DROP TABLE IF EXISTS "_tbl_wod_old_20220809_1";
+CREATE TABLE "_tbl_wod_old_20220809_1" (
+  "id" integer NOT NULL,
+  "name" text(120) NOT NULL,
+  "desc" text(255),
+  "type_id" integer NOT NULL,
+  "level_id" integer,
+  "classic" integer NOT NULL,
+  "rounds" integer,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "timecap" text,
+  PRIMARY KEY ("id"),
+  CONSTRAINT "tbl_wod_ibfk_1" FOREIGN KEY ("type_id") REFERENCES "tbl_wod_type" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT "tbl_wod_ibfk_2" FOREIGN KEY ("level_id") REFERENCES "tbl_movement_level" ("id") ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+-- ----------------------------
+-- Records of _tbl_wod_old_20220809_1
+-- ----------------------------
+BEGIN;
+INSERT INTO "_tbl_wod_old_20220809_1" ("id", "name", "desc", "type_id", "level_id", "classic", "rounds", "created_at", "updated_at", "timecap") VALUES (1, 'Frank', 'Heroes', 3, 2, 1, 3, '2022-03-26 21:29:42', '2022-03-26 21:52:31', NULL);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for sqlite_sequence
@@ -269,6 +353,7 @@ CREATE TABLE "tbl_wod" (
   "level_id" integer,
   "classic" integer NOT NULL,
   "rounds" integer,
+  "timecap" text,
   "created_at" text NOT NULL,
   "updated_at" text NOT NULL,
   PRIMARY KEY ("id"),
@@ -280,7 +365,7 @@ CREATE TABLE "tbl_wod" (
 -- Records of tbl_wod
 -- ----------------------------
 BEGIN;
-INSERT INTO "tbl_wod" ("id", "name", "desc", "type_id", "level_id", "classic", "rounds", "created_at", "updated_at") VALUES (1, 'Frank', 'Heroes', 3, 2, 1, 3, '2022-03-26 21:29:42', '2022-03-26 21:52:31');
+INSERT INTO "tbl_wod" ("id", "name", "desc", "type_id", "level_id", "classic", "rounds", "timecap", "created_at", "updated_at") VALUES (1, 'Frank', 'Heroes', 3, 2, 1, 3, NULL, '2022-03-26 21:29:42', '2022-03-26 21:52:31');
 COMMIT;
 
 -- ----------------------------
@@ -295,7 +380,7 @@ CREATE TABLE "tbl_wod_detail" (
   "quantity" integer,
   "quantity2" integer,
   "quantity3" integer,
-  "weigth" real,
+  "weight" real,
   "weight2" real,
   "weight3" real,
   "order" integer,
@@ -310,8 +395,8 @@ CREATE TABLE "tbl_wod_detail" (
 -- Records of tbl_wod_detail
 -- ----------------------------
 BEGIN;
-INSERT INTO "tbl_wod_detail" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weigth", "weight2", "weight3", "order", "extra") VALUES (1, 1, 4, 1, 21, 15, 9, NULL, NULL, NULL, 2, NULL);
-INSERT INTO "tbl_wod_detail" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weigth", "weight2", "weight3", "order", "extra") VALUES (2, 1, 17, 1, 21, 15, 9, 95.0, 65.0, NULL, 1, NULL);
+INSERT INTO "tbl_wod_detail" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weight", "weight2", "weight3", "order", "extra") VALUES (1, 1, 4, 1, 21, 15, 9, NULL, NULL, NULL, 2, NULL);
+INSERT INTO "tbl_wod_detail" ("id", "wod_id", "movement_id", "measure_id", "quantity", "quantity2", "quantity3", "weight", "weight2", "weight3", "order", "extra") VALUES (2, 1, 17, 1, 21, 15, 9, 95.0, 65.0, NULL, 1, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -376,10 +461,16 @@ GROUP BY
 	`m`.`id`;
 
 -- ----------------------------
+-- View structure for vw_wodcontents
+-- ----------------------------
+DROP VIEW IF EXISTS "vw_wodcontents";
+CREATE VIEW "vw_wodcontents" AS select `wd`.`wod_id` AS `wodId`,`m`.`name` AS `movement`,`wd`.`quantity` AS `quantity`,`wd`.`quantity2` AS `quantity2`,`wd`.`quantity3` AS `quantity3`,`m`.`measures` AS `measures`,`wd`.`weight` AS `weight`,`wd`.`weight2` AS `weight2`,`wd`.`weight3` AS `weight3`,`wd`.`extra` AS `extra` from (`tbl_wod_detail` `wd` join `vw_movements` `m` on((`wd`.`movement_id` = `m`.`id`))) order by `wd`.`order`;
+
+-- ----------------------------
 -- View structure for vw_wods
 -- ----------------------------
 DROP VIEW IF EXISTS "vw_wods";
-CREATE VIEW "vw_wods" AS select `w`.`id` AS `id`,`w`.`name` AS `name`,`wt`.`name` AS `type`,count(0) AS `movements` from ((`tbl_wod` `w` join `tbl_wod_detail` `wd` on((`w`.`id` = `wd`.`wod_id`))) join `tbl_wod_type` `wt` on((`w`.`type_id` = `wt`.`id`))) group by `w`.`id`;
+CREATE VIEW "vw_wods" AS select `w`.`id` AS `id`,`w`.`name` AS `name`,`wt`.`name` AS `type`,w.timecap,count(0) AS `movements` from ((`tbl_wod` `w` join `tbl_wod_detail` `wd` on((`w`.`id` = `wd`.`wod_id`))) join `tbl_wod_type` `wt` on((`w`.`type_id` = `wt`.`id`))) group by `w`.`id`;
 
 -- ----------------------------
 -- Indexes structure for table tbl_movement
