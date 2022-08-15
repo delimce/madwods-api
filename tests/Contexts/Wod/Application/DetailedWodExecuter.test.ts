@@ -13,6 +13,12 @@ afterAll(async () => {
 
 
 describe('Get a Detailed wod ', () => {
+
+    it('should retrieve an error caused by no wodId passed', async () => {
+        const executer = await container.get('executers.wod.detail');
+        await expect(executer.run()).rejects.toThrowError("wodId is required");
+    });
+
     it('should retrieve a valid detailed wod', async () => {
         const executer = await container.get('executers.wod.detail');
         executer.wodId = 1;
@@ -23,8 +29,4 @@ describe('Get a Detailed wod ', () => {
 
     });
 
-    it.skip('should retrieve an error caused by no wodId passed', async () => {
-        const executer = await container.get('executers.wod.detail');
-        expect(executer.run()).rejects.toThrowError('wodId is required');
-    });
 });
