@@ -1,4 +1,4 @@
-import { Wod, WodDetailed } from "@Wod/Domain/Wod";
+import { Wod, DetailedWod } from "@Wod/Domain/Wod";
 import { WodRepository } from "@Wod/Domain/WodRepository";
 import services from "@Api/Services/InfrastructureServices";
 
@@ -25,16 +25,16 @@ export class WodTORepository implements WodRepository {
         return await this.wodRepository.find();
     }
 
-    async getDetailedByID(id: number): Promise<WodDetailed | null> {
-        let wodDetailed = null;
+    async getDetailedByID(id: number): Promise<DetailedWod | null> {
+        let DetailedWod = null;
         const wod = await this.wodRepository.findOneBy({ id: id });
         if (wod) {
-            wodDetailed = {
+            DetailedWod = {
                 wod: wod,
                 details: await this.wodDetailedRepository.findBy({ wodId: id })
             };
         }
-        return wodDetailed;
+        return DetailedWod;
     }
 
 }

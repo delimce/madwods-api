@@ -1,7 +1,7 @@
 import { ContainerBuilder } from 'node-dependency-injection'
 import { WodTORepository } from '@Wod/Infrastructure/Persistence/WodTORepository';
 import { WodListExecuter } from '@Wod/Application/WodListExecuter';
-import { WodDetailedExecuter } from '@Wod/Application/WodDetailedExecuter';
+import { DetailedWodExecuter } from '@Wod/Application/DetailedWodExecuter';
 
 let container = new ContainerBuilder();
 
@@ -10,7 +10,7 @@ container.register('repositories.wod', WodTORepository);
 
 //executers
 container.register('executers.wod.list', WodListExecuter);
-container.register('executers.wod.detail', WodDetailedExecuter);
+container.register('executers.wod.detail', DetailedWodExecuter);
 
 export default container;
 
