@@ -4,6 +4,8 @@ export interface Wod {
     id: number;
     name: string;
     type: string;
+    level: string | null;
+    category: string | null;
     timeCap: string;
 }
 
