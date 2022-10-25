@@ -1,51 +1,48 @@
 import * as dotenv from "dotenv";
 import { Logger } from "@Shared/Domain/Logger";
-import log4js from "log4js";
+import pino from "pino";
 
 export class LoggerHandler implements Logger {
+
     level: string = "debug";
+    driver: any;
 
     constructor() {
 
         dotenv.config();
 
         let logFile: string | undefined = process.env.LOG_FILE || 'logs/app.log';
-        const config = {
-            appenders: {
-                console: {
-                    type: 'file',
-                    filename: logFile,
-                    layout: {
-                        type: 'pattern',
-                        pattern: '%d{yyyy-MM-dd hh:mm:ss} %p %c - %m'
-                    }
-                }
-            },
-            categories: {
-                default: {
-                    appenders: ['console'],
-                    level: 'all'
-                }
-            }
-        };
 
-        log4js.configure(config);
+        /**					
+            Level:	trace	debug	info	warn	error	fatal	silent
+            Value:	10	    20	    30	    40	    50	    60	    Infinity
+         */
+
+        this.driver = pino(
+            {
+                level: this.level,
+                timestamp: () => `,"time":"${new Date().toISOString()}"`,
+
+            },
+            pino.destination({
+                dest: logFile,
+                minLength: 200, // Buffer before writing
+                sync: false // Asynchronous logging, the default
+            }));
+
     }
 
     info(message: string): void {
-        this.level = "info";
-        log4js.getLogger(this.level).info(message);
+        this.driver.info(message);
     }
     debug(message: string): void {
-        log4js.getLogger(this.level).debug(message);
+        this.driver.debug(message);
     }
     error(message: string | Error): void {
-        this.level = "error";
-        log4js.getLogger(this.level).error(message);
+        this.driver.error(message);
     }
     warn(message: string): void {
-        this.level = "warn";
-        log4js.getLogger(this.level).warn(message);
+        this.driver.warn(message);
     }
 
 }
