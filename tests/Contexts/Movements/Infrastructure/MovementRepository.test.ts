@@ -16,6 +16,7 @@ describe('movement repository', () => {
     it('should retrieve a valid list of movements', async () => {
         const movements = await container.get('repositories.movement').getAll();
         if (movements) {
+            expect(movements).toBeInstanceOf(Array);
             expect(movements.length).toBeGreaterThan(0);
             expect(movements[0]).toBeInstanceOf(MovementViewEntity);
         }
