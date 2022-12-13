@@ -34,8 +34,11 @@
     "dev": "nodemon ./dist/Api/index",
     "test": "jest --detectOpenHandles",
     "test_coverage": "jest --coverage",
-    "build": "rm -rf ./dist/ && tsc",
-    "start": "tsc && ef-tspm && ts-node ./dist/Api/index"
+    "prebuild": "rm -rf ./dist/",
+    "build": "tsc",
+    "postbuild": "ef-tspm",
+    "prestart": "npm run build",
+    "start": "ts-node ./dist/Api/index"
   },
   "repository": {
     "type": "git",
