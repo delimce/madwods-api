@@ -33,6 +33,7 @@
     "watch": "tsc -w",
     "dev": "nodemon ./dist/Api/index",
     "test": "jest --detectOpenHandles",
+    "newman": "newman run ./tests/e2e/mad-wods-api.postman_collection.json -e ./tests/e2e/postman_environment.json",
     "test_coverage": "jest --coverage",
     "prebuild": "rm -rf ./dist/",
     "build": "tsc",
