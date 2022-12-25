@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  mysql:
+    container_name: mysql
+    platform: linux/amd64
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'  
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    networks:
+      mysql_network:
+        aliases:
+          - mysql_host
+  sqlite3:
+    container_name: sqlite3
+    platform: linux/amd64
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./data/sqlite/:/root/db/      
+volumes:
+  schemas: {}
+networks:
+  mysql_network:
+    name: mysql_network
+    driver: bridge  

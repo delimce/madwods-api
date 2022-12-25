@@ -1,0 +1,61 @@
+{
+  "name": "madwods-api",
+  "version": "0.1.0",
+  "description": "Rest Api built using nodejs express and typescript for Madwods application suite",
+  "main": "./dist/Api/index.js",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.2",
+    "http-status": "^1.5.2",
+    "mysql2": "^2.3.3",
+    "node-dependency-injection": "^3.0.2",
+    "pino": "^8.7.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.7",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@ef-carbon/tspm": "^2.2.5",
+    "@types/cors": "^2.8.12",
+    "@types/express": "*",
+    "@types/jest": "*",
+    "@types/node": "*",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.19",
+    "sqlite3": "^5.0.10",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1"
+  },
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon ./dist/Api/index",
+    "test": "jest --detectOpenHandles",
+    "newman": "newman run ./tests/e2e/mad-wods-api.postman_collection.json -e ./tests/e2e/postman_environment.json",
+    "test_coverage": "jest --coverage",
+    "prebuild": "rm -rf ./dist/",
+    "build": "tsc",
+    "postbuild": "ef-tspm",
+    "prestart": "npm run build",
+    "start": "ts-node ./dist/Api/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/delimce/madwods-api.git"
+  },
+  "keywords": [
+    "crossfit",
+    "wods",
+    "madwods",
+    "mobile",
+    "rest"
+  ],
+  "author": "ldelima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delimce/madwods-api/issues"
+  },
+  "homepage": "https://github.com/delimce/madwods-api#readme"
+}
