@@ -4,12 +4,11 @@ import container from "@Api/Containers/WodContainer";
 
 export class DetailedWodExecuter {
 
-    private readonly wodRepository: WodRepository;
-    protected _wodId: number | null;
+    constructor(
+        private readonly wodRepository: WodRepository = container.get("repositories.wod"),
+        protected _wodId: number | null = null
+    ) {
 
-    constructor() {
-        this.wodRepository = container.get('repositories.wod');
-        this._wodId = null;
     }
 
     set wodId(id: number) {

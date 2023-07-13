@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: madwods-api
+  description: |
+    madwods official application api
+    documentation.
+  version: "1.0"
+  contact:
+    name: Luis De Lima
+    email: delimce@gmail.com
+servers:
+  - url: http://localhost:8083/api/v1
+    description: local server
+
+paths:
+  /movements:
+    get:
+      summary: Retrieve movements`s list
+      parameters: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/movementsList"
+        404:
+          $ref: "#/components/responses/notFound"
+        500:
+          $ref: "#/components/responses/internalError"
+
+components:
+  responses:
+    notFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorMessage"
+    forbidden:
+      description: Forbidden
+    internalError:
+      description: Internal error
+
+  parameters:
+    token:
+      name: token
+      in: header
+      description: authentication token
+      required: true
+      schema:
+        type: string
+        format: string
+
+  schemas:
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "error message"
+
+    movementsList:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/movement"
+
+    movement:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string

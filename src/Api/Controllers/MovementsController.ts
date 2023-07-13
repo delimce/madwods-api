@@ -4,11 +4,10 @@ import { BaseController } from "./BaseController";
 
 export class MovementsController extends BaseController {
 
-    protected movementList: MovementListExecuter;
-
-    constructor() {
+    constructor(
+        protected movementList: MovementListExecuter = new MovementListExecuter()
+    ) {
         super();
-        this.movementList = new MovementListExecuter();
     }
 
     async list(_req: Request, res: Response): Promise<void> {

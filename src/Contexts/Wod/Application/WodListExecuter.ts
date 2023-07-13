@@ -3,12 +3,10 @@ import { WodRepository } from "@Wod/Domain/WodRepository";
 import container from "@Api/Containers/WodContainer";
 
 export class WodListExecuter {
-
-    private readonly movementRepository: WodRepository;
-
-
-    constructor() {
-        this.movementRepository = container.get('repositories.wod');
+    
+    constructor(
+        private readonly movementRepository: WodRepository = container.get("repositories.wod")
+    ) {
     }
 
     run(): Promise<Wod[] | null> {

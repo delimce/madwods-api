@@ -4,11 +4,9 @@ import container from "@Api/Containers/MovementContainer";
 
 export class MovementListExecuter {
 
-    private readonly movementRepository: MovementRepository;
-
-
-    constructor() {
-        this.movementRepository = container.get('repositories.movement');
+    constructor(
+        private readonly movementRepository: MovementRepository = container.get("repositories.movement")
+    ) {
     }
 
     run(): Promise<Movement[] | null> {
